@@ -5,6 +5,7 @@ void gui_menu(){
 	
 	printf("****MENU****\n");
 	printf("*   功能1  *\n");
+	printf("*   功能2  *\n");
 	printf("************\n");
 }
 
