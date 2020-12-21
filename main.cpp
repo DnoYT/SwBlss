@@ -9,11 +9,15 @@
  
 
 int main(int argc, char** argv) {
+	//局部	变量
+	int i; 
+
 
 	//程序死循环 这样子程序就不会在执行完就退出了 
 	while(1){
 		//绘画菜单 
 		gui_menu();
+		scanf("&d",&i);
 	} 
 	
 	//CHelloWorld();用c语言输出HelloWorld 

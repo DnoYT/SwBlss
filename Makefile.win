@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o YConfig.o Lang.o Cdome.o gui.o
-LINKOBJ  = main.o YConfig.o Lang.o Cdome.o gui.o
+OBJ      = main.o Cdome.o gui.o Lang.o YConfig.o
+LINKOBJ  = main.o Cdome.o gui.o Lang.o YConfig.o
 LIBS     = -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -27,14 +27,14 @@ $(BIN): $(OBJ)
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
-YConfig.o: YConfig.cpp
-	$(CPP) -c YConfig.cpp -o YConfig.o $(CXXFLAGS)
-
-Lang.o: Lang.cpp
-	$(CPP) -c Lang.cpp -o Lang.o $(CXXFLAGS)
-
 Cdome.o: Cdome.c
 	$(CPP) -c Cdome.c -o Cdome.o $(CXXFLAGS)
 
 gui.o: gui.cpp
 	$(CPP) -c gui.cpp -o gui.o $(CXXFLAGS)
+
+Lang.o: Lang.cpp
+	$(CPP) -c Lang.cpp -o Lang.o $(CXXFLAGS)
+
+YConfig.o: YConfig.cpp
+	$(CPP) -c YConfig.cpp -o YConfig.o $(CXXFLAGS)

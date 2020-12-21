@@ -3,6 +3,8 @@
 //编绘菜单 
 void gui_menu(){
 	
+	printf("****menu****");
+	printf("*   功能1   *");
 }
 
 //清空界面 
