@@ -5,6 +5,8 @@
 //该功能在测试阶段
 //请不要修改 
 
+
+
 void saveConfig(){
 	 FILE *fp;
     st sa,sb;

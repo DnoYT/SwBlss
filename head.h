@@ -14,7 +14,7 @@
 //********************注册结构体 
 
 //该结构体目前用于测试保存数据 
-typedef  struct {
+typedef struct {
      char c;
      int h;
      short n;
@@ -25,14 +25,23 @@ typedef  struct {
      double d2;
 }st;
 
+
+
+
+
 //该结构体用于 语言
- 
+ struct LS {
+    char menu0[50];
+   	char menu1[50];
+};
 
 
 
 //********************定义全局变量
 //任何文件都可以使用的数据 
-
+LS LS_CN;
+LS LS_EU;
+LS LS_DF;
 
 
 
@@ -47,10 +56,16 @@ void readConfig();
 void loadLang();
 void loaLang_EU();
 void loaLang_CN();
+int lang_if();
 
 //gui函数——界面绘画函数//
 void gui_cls();
 void gui_menu(); 
+void gui_color();
+
+
+
+using namespace std;
 
 
 
