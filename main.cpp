@@ -12,13 +12,17 @@ int main(int argc, char** argv) {
 	//局部	变量
 	int i; 
 
+	//让使用者确定语言
+	lang_if(); 
+	//cout<<LS_DF.menu0<<endl;
+	
 
 	//程序死循环 这样子程序就不会在执行完就退出了 
-	while(1){
-		//绘画菜单 
-		gui_menu();
-		scanf("&d",&i);
-	} 
+
+	//绘画菜单 
+	gui_menu();
+		
+	
 	
 	//CHelloWorld();用c语言输出HelloWorld 
 	return 0;
