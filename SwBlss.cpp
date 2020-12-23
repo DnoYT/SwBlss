@@ -12,6 +12,9 @@
 //加载 字符串 编剧库
 //对字符串进行复制粘贴 
 #include <cstring> 
+//conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，
+//主要是一些用户通过按键盘产生的对应操作，比如getch()函数等等。
+#include <conio.h>
 
 
 //********************注册结构体 
@@ -97,12 +100,13 @@ int main(int argc, char** argv) {
 	
 
 	//程序死循环 这样子程序就不会在执行完就退出了 
-
+	while(1){
 	//绘画菜单 
 	gui_menu();
 	
 	//进行功能判断
 	func();
+}
 	//CHelloWorld();用c语言输出HelloWorld 
 	return 0;
 }
@@ -225,8 +229,7 @@ int lang_if(){
  
  //编绘菜单 
 void gui_menu(){
-	
-	
+	gui_cls();
 	int n=1,i=n;
 	while(LS_DF.menu[i][0]!=0){
 		if(i!=n)
@@ -278,15 +281,35 @@ void gui_color(){
 //主功能 
 void func(){
 	int func_id;
-	cin >> func_id;
+	scanf("%d",&func_id);
 	gui_cls();
+	
+	switch(func_id){
+		case 1:
+			func_add();
+			break;
+		case 2:
+			func_Delete();
+			break;
+		case 3:
+			func_Abou();
+			break;
+		case 0:
+			func_Exit();
+			break;
+		default:
+			break;
+		
+	} 
 	cout<<LS_DF.choice<<func_id;
 }
 
 
 //功能 学生信息添加 
 void func_add(){
-	
+	int a;
+	cout<<"你选择了添加"<<endl;
+	getch();
 } 
 
 //功能 学生信息删除 
