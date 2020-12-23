@@ -1,4 +1,4 @@
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 //头文件组
 //该代码指向 head.h 大概意思就是加载 head.h 文件里的c代码
 //这样子写简单 
@@ -12,8 +12,7 @@
 #include <cstdlib>
 //加载 字符串 编剧库
 //对字符串进行复制粘贴 
-=======
-<<<<<<< refs/remotes/origin/li
+
 //ͷ�ļ���
 //�ô���ָ�� head.h �����˼���Ǽ��� head.h �ļ����c����
 //������д�� 
@@ -27,20 +26,19 @@
 #include <cstdlib>
 //���� �ַ��� ����
 //���ַ������и���ճ�� 
->>>>>>> 更改语言
+
 #include <cstring> 
 //conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，
 //主要是一些用户通过按键盘产生的对应操作，比如getch()函数等等。
 #include <conio.h>
 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
 //********************注册结构体 
 //该结构体目前用于测试保存数据 
-=======
+
 //********************ע��ṹ�� 
 //�ýṹ��Ŀǰ���ڲ��Ա������� 
->>>>>>> 更改语言
+
 typedef struct {
      char c;
      int h;
@@ -56,11 +54,11 @@ typedef struct {
 
 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 //该结构体用于 语言
-=======
+
 //�ýṹ������ ����
->>>>>>> 更改语言
+
  struct LS {
  	char YXlang[50];
     char menu0[50];
@@ -72,10 +70,10 @@ typedef struct {
 
 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 //********************定义全局变量
 //任何文件都可以使用的数据 
-=======
+
 //********************����ȫ�ֱ���
 //�κ��ļ�������ʹ�õ����� 
 >>>>>>> 更改语言
@@ -85,7 +83,7 @@ LS LS_DF;
 char kg[] = "\t\t\t";
 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 //********************注册函数 
 //施展怎么写c 没错就是给你们学c的写的
 void CHelloWorld();
@@ -94,7 +92,7 @@ void saveConfig();
 //读取数据 
 void readConfig();
 //加载语言 
-=======
+
 //********************ע�ắ�� 
 //ʩչ��ôдc û�����Ǹ�����ѧc��д��
 void CHelloWorld();
@@ -109,17 +107,17 @@ void loaLang_EU();
 void loaLang_CN();
 int lang_if();
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 //gui函数——界面绘画函数//
-=======
+
 //gui������������滭����//
->>>>>>> 更改语言
+
 void gui_cls();
 void gui_menu(); 
 void gui_color();
 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 //功能模块
 void func();
 //功能 学生信息添加 
@@ -129,7 +127,7 @@ void func_Delete();
 //功能 关于我们 
 void func_Abou();
 //功能 退出 
-=======
+
 //����ģ��
 void func();
 //���� ѧ����Ϣ���� 
@@ -138,8 +136,7 @@ void func_add();
 void func_Delete();
 //���� �������� 
 void func_Abou();
-//���� �˳� 
->>>>>>> 更改语言
+//���� �˳
 void func_Exit();
 
 
@@ -149,22 +146,21 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 	//局部	变量
 	int i; 
 
 	//让使用者确定语言
-=======
+
 	//�ֲ�	����
 	int i; 
 
 	//��ʹ����ȷ������
->>>>>>> 更改语言
+
 	lang_if(); 
 	//cout<<LS_DF.menu0<<endl;
 	
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
 	//程序死循环 这样子程序就不会在执行完就退出了 
 	while(1){
 	//绘画菜单 
@@ -174,16 +170,17 @@ int main(int argc, char** argv) {
 	func();
 }
 	//CHelloWorld();用c语言输出HelloWorld 
-=======
-	//������ѭ�� �����ӳ���Ͳ�����ִ������˳��� 
 
+	//������ѭ�� �����ӳ���Ͳ�����ִ������˳��� 
+	while(1){
 	//�滭�˵� 
 	gui_menu();
 	
 	//���й����ж�
 	func();
+}
 	//CHelloWorld();��c�������HelloWorld 
->>>>>>> 更改语言
+
 	return 0;
 }
 
@@ -195,7 +192,6 @@ int main(int argc, char** argv) {
 
 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
 //原Lang文件
 
 void loaLang_CN(){
@@ -215,7 +211,7 @@ void loaLang_CN(){
 	strcpy(La.sr[0] ,"请输入");
 	strcpy(La.sr[1] ,"选择功能");
 	strcpy(La.choice ,"你选择了功能：");
-=======
+
 //ԭLang�ļ�
 
 void loaLang_CN(){
@@ -235,7 +231,7 @@ void loaLang_CN(){
 	strcpy(La.sr[0] ,"������");
 	strcpy(La.sr[1] ,"ѡ����");
 	strcpy(La.choice ,"��ѡ���˹��ܣ�");
->>>>>>> 更改语言
+
 	
 	LS_CN = La;
 }
@@ -254,7 +250,7 @@ void loaLang_EU(){
 	i++;
 	strcpy(La.menu[i] ,"Abou");
 	//strcpy(La.YXlang ,"You chose English");
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 	strcpy(La.YXlang ,"Welcome to 广西外国语学院 Student management system");
 	strcpy(La.sr[0] ,"Please enter");
 	strcpy(La.sr[1] ,"Select function");
@@ -263,7 +259,7 @@ void loaLang_EU(){
 }
 
 //加载语言 
-=======
+
 	strcpy(La.YXlang ,"Welcome to ���������ѧԺ Student management system");
 	strcpy(La.sr[0] ,"Please enter");
 	strcpy(La.sr[1] ,"Select function");
@@ -290,7 +286,7 @@ int lang_if(){
 	loaLang_EU();
 	
 	
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 	//中文提醒 
 	char remind[] =  "请选择语言(Please select language)\n随便输入默认 中文";
 	
@@ -310,7 +306,6 @@ int lang_if(){
 	 strcpy(remind_input , strupr(remind_input));
 	
 	//的输入值进行判断 
-=======
 	//�������� 
 	char remind[] =  "��ѡ������(Please select language)\n�������Ĭ�� ����";
 	
@@ -330,7 +325,7 @@ int lang_if(){
 	 strcpy(remind_input , strupr(remind_input));
 	
 	//������ֵ�����ж� 
->>>>>>> 更改语言
+
 	gui_cls();
 	if (strcmp(remind_input,"CN") == 0){
 		LS_DF = LS_CN; 
@@ -338,11 +333,10 @@ int lang_if(){
 		LS_DF = LS_EU; 
 	}else{
 		LS_DF = LS_CN; 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
 		cout<<"默认中文"<<endl;
-=======
+
 		cout<<"Ĭ������"<<endl;
->>>>>>> 更改语言
+
 	}
 		cout<<LS_DF.YXlang<<endl;
 }
@@ -425,10 +419,9 @@ void gui_color(){
 
 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
 
  
-//主功能 
+//������ 
 void func(){
 	int func_id;
 	scanf("%d",&func_id);
@@ -455,29 +448,27 @@ void func(){
 }
 
 
-//功能 学生信息添加 
-=======
 //���� ѧ����Ϣ���� 
->>>>>>> 更改语言
+
 void func_add(){
 	int a;
 	cout<<"你选择了添加"<<endl;
 	getch();
 } 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 //功能 学生信息删除 
-=======
+
 //���� ѧ����Ϣɾ�� 
->>>>>>> 更改语言
+
 void func_Delete(){
 	
 }
 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
+
 //功能 关于我们 
-=======
+
 //���� �������� 
 >>>>>>> 更改语言
 void func_Abou(){
@@ -485,14 +476,12 @@ void func_Abou(){
 }
 
 
-<<<<<<< b42dc21a9e11abb1aefcf75d95fa7fc72ff1a764
 //功能 退出 
 void func_Exit(){
 	
 }
-=======
+
 //���� �˳� 
 void func_Exit(){
 	
 }
->>>>>>> 更改语言
