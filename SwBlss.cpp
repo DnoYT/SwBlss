@@ -12,6 +12,9 @@
 //加载 字符串 编剧库
 //对字符串进行复制粘贴 
 #include <cstring> 
+//conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，
+//主要是一些用户通过按键盘产生的对应操作，比如getch()函数等等。
+#include <conio.h>
 
 
 //********************注册结构体 
@@ -74,18 +77,8 @@ void gui_color();
 void func();
 //功能 学生信息添加 
 void func_add();
-//功能 学生消息查找
-void func_lookup();
 //功能 学生信息删除 
 void func_Delete();
-//功能 学生消息排序
-void func_sort();
-//功能 学生消息统计
-void func_stat();
-//功能 学生消息显示
-void func_disp();
-//功能 学生消息修改
-void func_modify(); 
 //功能 关于我们 
 void func_Abou();
 //功能 退出 
@@ -107,12 +100,13 @@ int main(int argc, char** argv) {
 	
 
 	//程序死循环 这样子程序就不会在执行完就退出了 
-
+	while(1){
 	//绘画菜单 
 	gui_menu();
 	
 	//进行功能判断
 	func();
+}
 	//CHelloWorld();用c语言输出HelloWorld 
 	return 0;
 }
@@ -136,16 +130,8 @@ void loaLang_CN(){
 	i++;
 	strcpy(La.menu[i] ,"添加");
 	i++;
-	strcpy(La.menu[i],"查找");
-	i++;
 	strcpy(La.menu[i] ,"删除");
 	i++;
-	strcpy(La.menu[i],"排序");
-	i++;
-	strcpy(La.menu[i],"显示");
-	i++;
-	strcpy(La.menu[i],"修改");
-	i++; 
 	strcpy(La.menu[i] ,"关于");
 	//strcpy(La.YXlang ,"你选择了中文");
 	strcpy(La.YXlang ,"欢迎使用广西外国语学院学生管理系统——四维变量团队开发");
@@ -166,19 +152,9 @@ void loaLang_EU(){
 	i++;
 	strcpy(La.menu[i] ,"ADD");
 	i++;
-	strcpy(La.menu[i],"Lookup");
-	i++;
 	strcpy(La.menu[i] ,"DELETE");
 	i++;
-	strcpy(La.menu[i],"Sort");
-	i++;
-	strcpy(La.menu[i],"Statistics");
-	i++;
-	strcpy(La.menu[i],"Display");
-	i++;
-	strcpy(La.menu[i],"Modify");
-	i++;
-	strcpy(La.menu[i] ,"About");
+	strcpy(La.menu[i] ,"Abou");
 	//strcpy(La.YXlang ,"You chose English");
 	strcpy(La.YXlang ,"Welcome to 广西外国语学院 Student management system");
 	strcpy(La.sr[0] ,"Please enter");
@@ -253,8 +229,7 @@ int lang_if(){
  
  //编绘菜单 
 void gui_menu(){
-	
-	
+	gui_cls();
 	int n=1,i=n;
 	while(LS_DF.menu[i][0]!=0){
 		if(i!=n)
@@ -306,41 +281,41 @@ void gui_color(){
 //主功能 
 void func(){
 	int func_id;
-	cin >> func_id;
+	scanf("%d",&func_id);
 	gui_cls();
+	
+	switch(func_id){
+		case 1:
+			func_add();
+			break;
+		case 2:
+			func_Delete();
+			break;
+		case 3:
+			func_Abou();
+			break;
+		case 0:
+			func_Exit();
+			break;
+		default:
+			break;
+		
+	} 
 	cout<<LS_DF.choice<<func_id;
 }
 
 
 //功能 学生信息添加 
 void func_add(){
-	
+	int a;
+	cout<<"你选择了添加"<<endl;
+	getch();
 } 
 
 //功能 学生信息删除 
 void func_Delete(){
 	
 }
-
-//功能 学生消息排序
-void func_sort(){
-	
-}
-
-//功能 学生消息统计
-void func_stat(){
-	
-}
-
-//功能 学生消息显示
-void func_disp(){
-	
-}
-
-//功能 学生消息修改
-void func_modify(){
-	
-} 
 
 
 //功能 关于我们 
