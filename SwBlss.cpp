@@ -29,7 +29,7 @@ typedef struct {
 }st;
 //该结构体用于 语言
  struct LS {
- 	char YXlang[50];
+ 	char YXlang[80];
    	char menu[20][50];
    	char sr[2][50];
    	char choice[60];
@@ -239,6 +239,7 @@ int lang_if(){
 void gui_menu(){
 	gui_cls();
 	
+	//cout<<LS_DF.menu[0]<<endl; 
 	cout<<LS_DF.YXlang<<endl;
 	int n=1,i=n;
 	while(LS_DF.menu[i][0]!=0){
