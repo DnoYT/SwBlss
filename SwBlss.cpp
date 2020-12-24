@@ -36,7 +36,7 @@ typedef struct {
 };
 
 //该结构体用于 学生数据 
-struct Date {
+struct DE {
 	//姓名 
 	char name[50];
 	//学号 
@@ -50,6 +50,8 @@ struct Date {
 LS LS_CN;
 LS LS_EU;
 LS LS_DF;
+DE Data[200];
+
 
 char kg[] = "\t\t";
 //********************注册函数 
