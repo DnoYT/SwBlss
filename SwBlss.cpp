@@ -1,4 +1,5 @@
 
+#include <bits/stdc++.h>
 //头文件组
 //该代码指向 head.h 大概意思就是加载 head.h 文件里的c代码
 //这样子写简单 
@@ -9,9 +10,12 @@
 #include <cstdio>
 //工具库 
 #include <cstdlib>
+
 //加载 字符串 编剧库
 //对字符串进行复制粘贴 
-#include <cstring> 
+#include <string.h>
+//#include <cstring> 
+
 //conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，
 //主要是一些用户通过按键盘产生的对应操作，比如getch()函数等等。
 #include <conio.h>
@@ -267,9 +271,12 @@ void gui_color(){
 void func(){
 	int func_id;
 	scanf("%d",&func_id);
+	getchar();
+	//fflush(stdout);
+	//fflush(stdin);
 	//cin >> func_id;
 	gui_cls();
-	cout<<LS_DF.choice<<func_id;
+	cout<<LS_DF.choice<<func_id<<endl;
 	switch(func_id){
 		case 1:
 			func_add();
@@ -278,6 +285,18 @@ void func(){
 			func_Delete();
 			break;
 		case 3:
+			func_sort();
+			break;
+		case 4:
+			func_stat();
+			break;
+		case 5:
+			func_disp();
+			break;
+		case 6:
+			func_modify();
+			break;
+		case 7:
 			func_Abou();
 			break;
 		case 0:
@@ -287,67 +306,76 @@ void func(){
 			break;
 		
 	} 
-	
-}
-//功能 学生信息添加 
-void func_add(){
-	char qd,km;
-	double cj,zcj[100];
-	printf("\n请确认是否添加学生成绩(Y为是，N为否)：");
-	scanf("%s",&qd);
-	if(qd=='Y'||qd=='y')
-	{
-		printf("\n请录入学生成绩：\n");
-		scanf("%lf",&cj);
-		printf("请输入该学生录入的科目：\n");
-		scanf("%s",&km);
-	
-		printf("学生成绩将添加进系统名单\n");
-		//添加入库 
-	}//else{
-//		printf("请重新录入学生成绩、科目\n");
-//	//返回第七行 
-//		printf("请确认是否全部录入完毕？(Y为是，N为否)\n");
-//		scanf("%s",&qd);
-//		if(qd=='Y'||qd=='y'){
-//		printf("学生成绩录入完毕，即将返回上一级。");
-//		//返回上一级	
-//		}
-	else
-		printf("输入任意键回到主菜单.\n");
-		
+	printf("输入任意键回到主菜单.\n");
 	getch();
+}
+//功能 学生信息添加 1
+void func_add(){
+	
+	int i=-1,j=0;
+	char b ='n';
+	string name[500];
+	printf("\n请确认是否添加学生成绩(Y为是，N为否)：");
+	//scanf("%c",b);
+	cin>>b;
+	
+	//小写转大写
+	//strcpy(b , strupr(b));
+	if(b=='Y' || b == 'y'){
+		gui_cls();
+		cout<<"请输入\n"<<endl;
+		getchar();
+			
+		do{
+    		i++;
+    		//读取每一行 
+    		getline(cin,name[i]);
+    	
+    		//如果输入的第一个不是 0 就继续输入
+			//如果是0 就说明 该人必须输入了 
+		}while(name[i][0] != 0);
+		
+		gui_cls();
+		cout<<"验证信息"<<endl;
+		for(j=0;j<i;j++){
+			cout<<j+1<<" "<<name[j]<<endl;
+		}
+	}
+	
+	
+			
+	//getch();
 	
 } 
-//功能 学生信息删除 
+//功能 学生信息删除 2
 void func_Delete(){
 	
 }
-//功能 学生消息排序
+//功能 学生消息排序 3
 void func_sort(){
 	
 }
-//功能 学生消息统计
+//功能 学生消息统计 4
 void func_stat(){
 	
 }
 
-//功能 学生消息显示
+//功能 学生消息显示 5
 void func_disp(){
 	
 }
 
-//功能 学生消息修改
+//功能 学生消息修改 6
 void func_modify(){
 	
 } 
 
 
-//功能 关于我们 
+//功能 关于我们  7
 void func_Abou(){
 	
 }
-//功能 退出 
+//功能 退出 0
 void func_Exit(){
 	
 }
