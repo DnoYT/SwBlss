@@ -5,7 +5,7 @@
 //这样子写简单 
 //********************加载工具包 
 //c++工具包 
-#include <iostream> 
+#include <iostream>
 //c工具包 
 #include <cstdio>
 //工具库 
@@ -18,35 +18,35 @@
 
 //conio是Console Input/Output（控制台输入输出）的简写，其中定义了通过控制台进行数据输入和数据输出的函数，
 //主要是一些用户通过按键盘产生的对应操作，比如getch()函数等等。
-#include <conio.h>
+//#include <conio.h>
 //********************注册结构体 
 //该结构体目前用于测试保存数据 
 typedef struct {
-     char c;
-     int h;
-     short n;
-     long m;
-     float f;
-     double d1;
-     char *s;
-     double d2;
+    char c;
+    int h;
+    short n;
+    long m;
+    float f;
+    double d1;
+    char *s;
+    double d2;
 }st;
 //该结构体用于 语言
- struct LS {
- 	char YXlang[80];
-   	char menu[20][50];
-   	char sr[2][50];
-   	char choice[60];
+struct LS {
+    char YXlang[80];
+    char menu[20][50];
+    char sr[2][50];
+    char choice[60];
 };
 
 //该结构体用于 学生数据 
 struct DE {
-	//姓名 
-	char name[50];
-	//学号 
-	long int id;
-	//成绩 
-	int sum[3];
+    //姓名
+    char name[50];
+    //学号
+    long int id;
+    //成绩
+    int sum[3];
 };
 
 //********************定义全局变量
@@ -72,7 +72,7 @@ void loaLang_CN();
 int lang_if();
 //gui函数——界面绘画函数//
 void gui_cls();
-void gui_menu(); 
+void gui_menu();
 void gui_color();
 //功能模块
 void func();
@@ -89,7 +89,7 @@ void func_stat();
 //功能 学生消息显示
 void func_disp();
 //功能 学生消息修改
-void func_modify(); 
+void func_modify();
 //功能 关于我们 
 void func_Abou();
 //功能 退出 
@@ -98,284 +98,288 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-	//局部	变量
-	int i; 
-	//让使用者确定语言
-	lang_if(); 
-	//cout<<LS_DF.menu0<<endl;
-	
-	//程序死循环 这样子程序就不会在执行完就退出了 
-	while(1){
+    //局部	变量
+    int i;
+    //让使用者确定语言
+    lang_if();
+    //cout<<LS_DF.menu0<<endl;
 
-	//绘画菜单 
-	gui_menu();
-	
-	//进行功能判断
-	func();
-	}
-	//CHelloWorld();用c语言输出HelloWorld 
-	return 0;
+    //程序死循环 这样子程序就不会在执行完就退出了
+    while(1){
+
+        //绘画菜单
+        gui_menu();
+
+        //进行功能判断
+        func();
+    }
+    //CHelloWorld();用c语言输出HelloWorld
+    return 0;
 }
 //原Lang文件
 void loaLang_CN(){
 //	strcpy(LS_CN.menu0 ,"退出");
 //	strcpy(LS_CN.menu1 ,"添加");
-	LS La;
-	int i=0;
-	strcpy(La.menu[i] ,"退出");
-	i++;
-	strcpy(La.menu[i] ,"添加");
-	i++;
-	strcpy(La.menu[i],"查找");
-	i++;
-	strcpy(La.menu[i] ,"删除");
-	i++;
-	strcpy(La.menu[i],"排序");
-	i++;
-	strcpy(La.menu[i],"显示");
-	i++;
-	strcpy(La.menu[i],"修改");
-	i++; 
-	strcpy(La.menu[i] ,"关于");
-	//strcpy(La.YXlang ,"你选择了中文");
-	strcpy(La.YXlang ,"欢迎使用广西外国语学院学生管理系统——四维变量团队开发");
-	strcpy(La.sr[0] ,"请输入");
-	strcpy(La.sr[1] ,"选择功能");
-	strcpy(La.choice ,"你选择了功能：");
-	
-	LS_CN = La;
+    LS La;
+    int i=0;
+    strcpy(La.menu[i] ,"退出");
+    i++;
+    strcpy(La.menu[i] ,"添加");
+    i++;
+    strcpy(La.menu[i],"查找");
+    i++;
+    strcpy(La.menu[i] ,"删除");
+    i++;
+    strcpy(La.menu[i],"排序");
+    i++;
+    strcpy(La.menu[i],"显示");
+    i++;
+    strcpy(La.menu[i],"修改");
+    i++;
+    strcpy(La.menu[i] ,"关于");
+    //strcpy(La.YXlang ,"你选择了中文");
+    strcpy(La.YXlang ,"欢迎使用广西外国语学院学生管理系统——四维变量团队开发");
+    strcpy(La.sr[0] ,"请输入");
+    strcpy(La.sr[1] ,"选择功能");
+    strcpy(La.choice ,"你选择了功能：");
+
+    LS_CN = La;
 }
 
 
 void loaLang_EU(){
 //	strcpy(LS_EU.menu0 ,"EXIT");
 //	strcpy(LS_EU.menu1 ,"ADD");
-	LS La;
-	
-	int i=0;
-	strcpy(La.menu[i] ,"EXIT");
-	i++;
-	strcpy(La.menu[i] ,"ADD");
-	i++;
-	strcpy(La.menu[i],"Lookup");
-	i++;
-	strcpy(La.menu[i] ,"DELETE");
-	i++;
-	strcpy(La.menu[i] ,"Abou");
-	strcpy(La.menu[i],"Sort");
-	i++;
-	strcpy(La.menu[i],"Statistics");
-	i++;
-	strcpy(La.menu[i],"Display");
-	i++;
-	strcpy(La.menu[i],"Modify");
-	i++;
-	strcpy(La.menu[i] ,"About");
-	//strcpy(La.YXlang ,"You chose English");
-	strcpy(La.YXlang ,"Welcome to 广西外国语学院 Student management system");
-	strcpy(La.sr[0] ,"Please enter");
-	strcpy(La.sr[1] ,"Select function");
-	strcpy(La.choice ,"You chose the feature：");
-	LS_EU = La;
+    LS La;
+
+    int i=0;
+    strcpy(La.menu[i] ,"EXIT");
+    i++;
+    strcpy(La.menu[i] ,"ADD");
+    i++;
+    strcpy(La.menu[i],"Lookup");
+    i++;
+    strcpy(La.menu[i] ,"DELETE");
+    i++;
+    strcpy(La.menu[i] ,"Abou");
+    strcpy(La.menu[i],"Sort");
+    i++;
+    strcpy(La.menu[i],"Statistics");
+    i++;
+    strcpy(La.menu[i],"Display");
+    i++;
+    strcpy(La.menu[i],"Modify");
+    i++;
+    strcpy(La.menu[i] ,"About");
+    //strcpy(La.YXlang ,"You chose English");
+    strcpy(La.YXlang ,"Welcome to 广西外国语学院 Student management system");
+    strcpy(La.sr[0] ,"Please enter");
+    strcpy(La.sr[1] ,"Select function");
+    strcpy(La.choice ,"You chose the feature：");
+    LS_EU = La;
 }
 //加载语言 
 void loadLang(char * remind_input){
-	
+
 //	switch(remind_input){
 //		case "CN": 
 //			
 //			LS_DF = LS LS_CN;
 //			break;
 //	}
-	
+
 }
 int lang_if(){
-	gui_color();
-	loaLang_CN();
-	loaLang_EU();
-	
-	
-	//中文提醒 
-	char remind[] =  "请选择语言(Please select language)\n随便输入默认 中文";
-	
-	char remind_sancf[] = "请输入EU/CN:";
-	
-	char remind_input[10];
-	//int remind_input;
-	//程序输出 
-	std::cout<<remind<<remind_sancf;
-	//用户输入 
-	std::cin>>remind_input;
-	
-	//加载语言; 
-	//loadLang(remind_input);
-	
-	//小写转大写
-	 strcpy(remind_input , strupr(remind_input));
-	
-	//的输入值进行判断 
-	gui_cls();
-	if (strcmp(remind_input,"CN") == 0){
-		LS_DF = LS_CN; 
-	}else if (strcmp(remind_input,"EU") == 0){
-		LS_DF = LS_EU; 
-	}else{
-		LS_DF = LS_CN; 
-		cout<<"默认中文"<<endl;
-	}
-		
+    gui_color();
+    loaLang_CN();
+    loaLang_EU();
+
+
+    //中文提醒
+    char remind[] =  "请选择语言(Please select language)\n随便输入默认 中文";
+
+    char remind_sancf[] = "请输入EU/CN:";
+
+    char remind_input[10];
+    //int remind_input;
+    //程序输出
+    std::cout<<remind<<remind_sancf;
+    //用户输入
+    std::cin>>remind_input;
+
+    //加载语言;
+    //loadLang(remind_input);
+
+    //小写转大写
+    strcpy(remind_input , strupr(remind_input));
+
+    //的输入值进行判断
+    gui_cls();
+    if (strcmp(remind_input,"CN") == 0){
+        LS_DF = LS_CN;
+    }else if (strcmp(remind_input,"EU") == 0){
+        LS_DF = LS_EU;
+    }else{
+        LS_DF = LS_CN;
+        cout<<"默认中文"<<endl;
+    }
+
 }
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- //编绘菜单 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//编绘菜单
 void gui_menu(){
-	gui_cls();
-	
-	//cout<<LS_DF.menu[0]<<endl; 
-	cout<<LS_DF.YXlang<<endl;
-	int n=1,i=n;
-	while(LS_DF.menu[i][0]!=0){
-		if(i!=n)
-			cout<<endl;
-		cout<<kg<<i<<"."<<LS_DF.menu[i];
-		i++;
-	}
-	//退出在最后一个 
-	cout<<endl<<kg<<"0."<<LS_DF.menu[0];
-	//提醒输出大小
-	printf("\n%s【0-%d】%s：",LS_DF.sr[0],i-1,LS_DF.sr[1]); 
+    gui_cls();
+
+    //cout<<LS_DF.menu[0]<<endl;
+    cout<<LS_DF.YXlang<<endl;
+    int n=1,i=n;
+    while(LS_DF.menu[i][0] != 0){
+        if(i!=n)
+            cout<<endl;
+        cout<<kg<<i<<"."<<LS_DF.menu[i];
+        i++;
+    }
+    //退出在最后一个
+    cout<<endl<<kg<<"0."<<LS_DF.menu[0];
+    //提醒输出大小
+    printf("\n%s【0-%d】%s：",LS_DF.sr[0],i-1,LS_DF.sr[1]);
 }
-//清空界面 
+//清空界面
 void gui_cls(){
-	system("cls");
+    system("cls");
 }
 void gui_color(){
-	system("color 30"); 
+    system("color 30");
 }
- 
-//主功能 
+
+//主功能
 void func(){
-	int func_id;
-	scanf("%d",&func_id);
-	getchar();
-	//fflush(stdout);
-	//fflush(stdin);
-	//cin >> func_id;
-	gui_cls();
-	cout<<LS_DF.choice<<func_id<<endl;
-	switch(func_id){
-		case 1:
-			func_add();
-			break;
-		case 2:
-			func_Delete();
-			break;
-		case 3:
-			func_sort();
-			break;
-		case 4:
-			func_stat();
-			break;
-		case 5:
-			func_disp();
-			break;
-		case 6:
-			func_modify();
-			break;
-		case 7:
-			func_Abou();
-			break;
-		case 0:
-			func_Exit();
-			break;
-		default:
-			break;
-		
-	} 
-	printf("输入任意键回到主菜单.\n");
-	getch();
+    int func_id;
+    //scanf("%d",&func_id);
+    cin>>func_id;
+    //fflush(stdout);
+    //fflush(stdin);c
+    //cin >> func_id;
+    gui_cls();
+    cout<<LS_DF.choice<<func_id<<endl;
+    switch(func_id){
+        case 1:
+            func_add();
+            break;
+        case 2:
+            func_Delete();
+            break;
+        case 3:
+            func_sort();
+            break;
+        case 4:
+            func_stat();
+            break;
+        case 5:
+            func_disp();
+            break;
+        case 6:
+            func_modify();
+            break;
+        case 7:
+            func_Abou();
+            break;
+        case 0:
+            func_Exit();
+            break;
+        default:
+            break;
+
+    }
+    printf("输入任意键回到主菜单.\n");
+    //getch();
+    //getchar();
+    system("PAUSE");
 }
 //功能 学生信息添加 1
 void func_add(){
-	
-	int i=-1,j=0;
-	char b ='n';
-	string name[500];
-	printf("\n请确认是否添加学生成绩(Y为是，N为否)：");
-	//scanf("%c",b);
-	cin>>b;
-	
-	//小写转大写
-	//strcpy(b , strupr(b));
-	if(b=='Y' || b == 'y'){
-		gui_cls();
-		cout<<"请输入\n"<<endl;
-		getchar();
-			
-		do{
-    		i++;
-    		//读取每一行 
-    		getline(cin,name[i]);
-    	
-    		//如果输入的第一个不是 0 就继续输入
-			//如果是0 就说明 该人必须输入了 
-		}while(name[i][0] != 0);
-		
-		gui_cls();
-		cout<<"验证信息"<<endl;
-		for(j=0;j<i;j++){
-			cout<<j+1<<" "<<name[j]<<endl;
-		}
-	}
-	
-	
-			
-	//getch();
-	
-} 
+
+    int i=-1,j=0;
+    char b ='n';
+    string name[500];
+    DE tmp;
+    printf("\n请确认是否添加学生成绩(Y为是，N为否)：");
+    //scanf("%c",b);
+    cin>>b;
+
+    //小写转大写
+    //strcpy(b , strupr(b));
+    if(b=='Y' || b == 'y'){
+        gui_cls();
+        cout<<"请输入\n"<<endl;
+        getchar();
+
+        do{
+            i++;
+            //读取每一行
+            getline(cin,name[i]);
+            //sscanf(name[i],"%[^a-z] %s %d",tmp.id,tmp.name,tmp.id);
+            //如果输入的第一个不是 0 就继续输入
+            //如果是0 就说明 该人必须输入了
+        }while(name[i][0] != 0);
+
+
+        gui_cls();
+        cout<<"验证信息"<<endl;
+        for(j=0;j<i;j++){
+            cout<<j+1<<" "<<name[j]<<endl;
+        }
+    }
+
+
+
+    //getch();
+
+}
 //功能 学生信息删除 2
 void func_Delete(){
-	
+
 }
 //功能 学生消息排序 3
 void func_sort(){
-	
+
 }
 //功能 学生消息统计 4
 void func_stat(){
-	
+
 }
 
 //功能 学生消息显示 5
 void func_disp(){
-	
+
 }
 
 //功能 学生消息修改 6
 void func_modify(){
-	
-} 
+
+}
 
 
 //功能 关于我们  7
 void func_Abou(){
-	
+
 }
 //功能 退出 0
 void func_Exit(){
-	
+
 }
