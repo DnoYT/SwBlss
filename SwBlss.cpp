@@ -404,6 +404,7 @@ void StartAN() {
         str[j - 2] = '>';
         str[j - 1] = '\0';
         cout << str;
+        cout<<"\n\t\t\t\t\t版权所有：2020-2021 四维变量   by Ytian";
         Sleep(50);
     }
     Sleep(1000);
