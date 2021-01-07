@@ -119,14 +119,14 @@ void gui_color() {
 void gui_menu() {
     int i = 0;
     //输出菜单开头
-    cout << "\n\n\n\n\n\n\n\n\n\t\t\t" << LSD.menu_head << endl;
+    cout << "\n\n\n\n\n\n\n\n\n\t\t\t\t\t" << LSD.menu_head << endl;
     do {
-        cout << "\t\t\t|\t";
+        cout << "\t\t\t\t\t|\t";
         cout << LSD.menu[i];
         cout << "\t   |" << endl;
         i++;
     } while (!LSD.menu[i].empty());
-    cout << "\t\t\t" << LSD.menu_end << endl;
+    cout << "\t\t\t\t\t" << LSD.menu_end << endl;
 }
 
 
@@ -173,7 +173,8 @@ LS loadLS_CN() {
 
     string display_menu[] = {
             "班级学员信息列表",
-            "\t编号\t姓名\t性别\t语文成绩\t数学成绩\t英语成绩\t平均值"
+            "\t编号\t姓名\t性别\t语文成绩\t数学成绩\t英语成绩\t平均值",
+            " 位学生已被录入",
     };
 
     string insert_menu[] = {
@@ -264,7 +265,8 @@ LS loadLS_EU() {
 
     string display_menu[] = {
             "Class student information list",
-            "No\tname\tgender\tChinese score\tmath score\tEnglish scoree\taverage value"
+            "No\tname\tgender\tChinese score\tmath score\tEnglish scoree\taverage value",
+            " student has been entered",
     };
 
     string insert_menu[] = {
@@ -397,8 +399,6 @@ void StartAN() {
 
         printf("[%d/%d]", i, l);
         for (j = 0; j < i; j++) {
-            // Sleep(100);//这里指100毫秒
-            //printf("\b");
             str[j] = '-';
         }
         str[j - 2] = '>';
@@ -409,7 +409,6 @@ void StartAN() {
     Sleep(1000);
     system("cls");
 
-    //cout<<" e";//注意字母e要往前一格
 }
 
 
@@ -435,9 +434,7 @@ void display()//显示数据函数
     char as;
     float ave;
     do {
-        // printf("\t\t班级学员信息列表\n");
-        cout << LSD.display_menu[0] <<endl<< LSD.display_menu[1]<<endl;
-        // printf("\t编号\t姓名\t性别\t语文成绩\t数学成绩\t英语成绩\t平均值\n");
+        cout << LSD.display_menu[0] << endl << LSD.display_menu[1] << endl;
         for (i = 0; i < now_no; i++) {
             stu[i].sum = stu[i].score1 + stu[i].score2 + stu[i].score3;
             stu[i].ave = stu[i].sum / 3;
@@ -459,37 +456,30 @@ void insert()//插入数据函数
     char ch;
     do {
         int i = 0;
-        // printf("\n\t\t输入新插入学员队信息\n");
         cout << "\n\t\t" << LSD.insert_menu[i];
         i++;
-        // printf("\n输入学生编号:");
         cout << "\n" << LSD.insert_menu[i];
         i++;
         scanf("%d", &stu[now_no].no);
         fflush(stdin);
         cout << "\n" << LSD.insert_menu[i];
         i++;
-        //printf("\n输入学员姓名:");
         fflush(stdin);
         gets(stu[now_no].name);
         cout << "\n" << LSD.insert_menu[i];
         i++;
-        //printf("\n输入学员性别:");
         fflush(stdin);
         gets(stu[now_no].sex);
         cout << "\n" << LSD.insert_menu[i];
         i++;
-        //printf("\n输入学员语文成绩:");
         fflush(stdin);
         scanf("%f", &stu[now_no].score1);
         cout << "\n" << LSD.insert_menu[i];
         i++;
-        //printf("\n输入学员数学成绩:");
         fflush(stdin);
         scanf("%f", &stu[now_no].score2);
         cout << "\n" << LSD.insert_menu[i];
         i++;
-        //printf("\n输入学员英语成绩:");
         fflush(stdin);
         scanf("%f", &stu[now_no].score3);
         printf("\n\n");
@@ -498,7 +488,6 @@ void insert()//插入数据函数
         fflush(stdin);
         cout << "\n" << LSD.insert_menu[i];
         i++;
-        //printf("是否继续输入?(Y/N)");
         ch = getchar();
         system("cls");
     } while (ch != 'n');
@@ -534,15 +523,12 @@ void find_data() {
     while (stu[i].no != 0) {
         if (no == stu[i].no) {
             b = true;
-//            cout<<b<<endl;
-//            getchar();
             break;
         }
         i++;
     }
     if (b) {
-        //printf("\t\t班级学员信息列表\n");
-        cout << LSD.display_menu[0] << endl << LSD.display_menu[1]<<endl;
+        cout << LSD.display_menu[0] << endl << LSD.display_menu[1] << endl;
         printf("\t%d\t%s\t%s\t%.2f\t%.2f\t%.2f\t%.2f\n", stu[i].no, stu[i].name, stu[i].sex, stu[i].score1,
                stu[i].score2, stu[i].score3, stu[i].ave);
         cout << LSD.find_data_menu[8];
@@ -570,9 +556,8 @@ int arr_l() {
 }
 
 void array_long() {
-    cout << "已经录入 " << arr_l() << " 位学生" << endl;
+   cout<<arr_l()<<LSD.display_menu[2];
     fflush(stdin);
-    //printf("\t\t按任意键返回主菜单.");
     cout << LSD.find_data_menu[8];
     getchar();
 }
