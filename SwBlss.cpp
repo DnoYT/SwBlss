@@ -1,9 +1,3 @@
-//特别声明 该项目百分之80代码是四维变量 独立开发
-//该项目是本团队大学期末考试作品 你使用可以使用但是请不要影响我们
-//该项目链接：https://github.com/DnoYT/SwBlss
-//特别感谢 王耀强老师 李志军老师 张杨老师 的大力支持
-//该项目已经可以使用 预计完成度 80%
-
 #include <iostream>
 #include <windows.h>
 #include <cstring>
@@ -67,7 +61,14 @@ struct student stu[MAX], *p;
 
 
 struct LS {
+    string input_menu[20];
+    string display_menu[30];
+    string insert_menu[20];
+    string del_menu[30];
+    string find_data_menu[20];
+    string gui_no_date_menu[30];
     string menu[12];
+    string func_menu[5];
     string Star[5];
     string C;
     string menu_head;
@@ -80,14 +81,21 @@ LS LSD;
 
 int main(int argc, char *argv[]) {
 
+//都命令参数修改
     gui_color();
-
+//加载语言
     loadLS();
+
+    //启动动画
     StartAN();
+
     while (true) {
+        //gui 界面
+        //menu菜单
         gui_menu();
-        //cin>>select;
+        //func 功能
         func();
+        //清除
         gui_cls();
     }
     return 0;
@@ -110,6 +118,7 @@ void gui_color() {
 
 void gui_menu() {
     int i = 0;
+    //输出菜单开头
     cout << "\n\n\n\n\n\n\n\n\n\t\t\t" << LSD.menu_head << endl;
     do {
         cout << "\t\t\t|\t";
@@ -144,10 +153,70 @@ LS loadLS_CN() {
             "加载完 耐心等待。。。。\n"
     };
 
-    LS_DF.C = "请选择[0-5]：";
+    LS_DF.C = "请选择[0-7]：";
+
+    string func_menu[] = {
+            "你没有录入人数\n",
+            "排序成功\n"
+    };
+
+    string input_menu[] = {
+            "1.录入学生信息\n",
+            "输入第%d个学员的信息\n",
+            "输入学生编号:\n",
+            "输入学员姓名:\n",
+            "输入学员性别:\n",
+            "输入学员语文成绩:\n",
+            "输入学员数学成绩:\n",
+            "输入学员英语成绩:\n"
+    };
+
+    string display_menu[] = {
+            "班级学员信息列表",
+            "\t编号\t姓名\t性别\t语文成绩\t数学成绩\t英语成绩\t平均值"
+    };
+
+    string insert_menu[] = {
+            "输入新插入学员队信息\n",
+            "输入学生编号:",
+            "输入学员姓名:",
+            "输入学员性别:",
+            "输入学员语文成绩:",
+            "输入学员数学成绩:",
+            "输入学员英语成绩:",
+            "是否继续输入?(Y/N)"
+    };
+
+    string del_menu[] = {
+            "输入要删除学员的编号:"
+    };
+
+    string find_data_menu[] = {
+            "输入编号：",
+            "班级学员信息列表\n",
+            "编号\n",
+            "姓名\n",
+            "性别\n",
+            "语文成绩\n",
+            "数学成绩\n",
+            "英语成绩\n",
+            "任意按键退出\n",
+            "没有找到\n"
+    };
+
+    string gui_no_date_menu[] = {
+            " 秒自动返回\n"
+    };
 
     memcpy(LS_DF.menu, menu, sizeof(menu));
     memcpy(LS_DF.Star, Star, sizeof(Star));
+    memcpy(LS_DF.func_menu, func_menu, sizeof(func_menu));
+    memcpy(LS_DF.input_menu, input_menu, sizeof(input_menu));
+    memcpy(LS_DF.display_menu, display_menu, sizeof(display_menu));
+    memcpy(LS_DF.insert_menu, insert_menu, sizeof(insert_menu));
+    memcpy(LS_DF.del_menu, del_menu, sizeof(del_menu));
+    memcpy(LS_DF.find_data_menu, find_data_menu, sizeof(find_data_menu));
+    memcpy(LS_DF.gui_no_date_menu, gui_no_date_menu, sizeof(gui_no_date_menu));
     return LS_DF;
 }
 
@@ -174,9 +243,71 @@ LS loadLS_EU() {
             "Ytian tries to crack the campus network with black hole War Star。。。。\n",
             "Wait patiently after loading。。。。\n"
     };
-    LS_DF.C = "Please input[0-5]：";
+
+    LS_DF.C = "Please input[0-7]：";
+
+    string func_menu[] = {
+            "You didn't enter the number of people.\n",
+            "Sorted successfully.\n"
+    };
+
+    string input_menu[] = {
+            "1. Input student information\n",
+            "Enter the information for %d student\n",
+            "Enter student number:\n",
+            "Enter student name:\n",
+            "Enter student gender:\n",
+            "Input students' language scores:\n",
+            "Input students' math scores:\n",
+            "Input students' English scores:\n"
+    };
+
+    string display_menu[] = {
+            "Class student information list",
+            "No\tname\tgender\tChinese score\tmath score\tEnglish scoree\taverage value"
+    };
+
+    string insert_menu[] = {
+            "Enter new team information",
+            "Enter student number:",
+            "Enter student name:",
+            "Enter student gender:",
+            "Input students' language scores:",
+            "Input students' math scores:",
+            "Input students' English scores:",
+            "Continue to input?(Y/N)"
+    };
+
+    string del_menu[] = {
+            "Enter the number of the student you want to delete:"
+    };
+
+    string find_data_menu[] = {
+            "Input number:",
+            "Class student information list\n",
+            "number\n",
+            "name\n",
+            "score\n",
+            "grade scores of Chinese\n",
+            "Mathematics achievement\n",
+            "English achievement\n",
+            "Press any key to exit\n",
+            "Can't find\n"
+    };
+
+    string gui_no_date_menu[] = {
+            " Second auto return\n"
+    };
+
     memcpy(LS_DF.menu, menu, sizeof(menu));
     memcpy(LS_DF.Star, Star, sizeof(Star));
+    memcpy(LS_DF.func_menu, func_menu, sizeof(func_menu));
+    memcpy(LS_DF.input_menu, input_menu, sizeof(input_menu));
+    memcpy(LS_DF.display_menu, display_menu, sizeof(display_menu));
+    memcpy(LS_DF.insert_menu, insert_menu, sizeof(insert_menu));
+    memcpy(LS_DF.del_menu, del_menu, sizeof(del_menu));
+    memcpy(LS_DF.find_data_menu, find_data_menu, sizeof(find_data_menu));
+    memcpy(LS_DF.gui_no_date_menu, gui_no_date_menu, sizeof(gui_no_date_menu));
     return LS_DF;
 }
 
@@ -207,7 +338,7 @@ void func() {
 
     if (select > '1' && select < '7') {
         if (arr_l() < 1) {
-            gui_no_date("你没有录入人数 ");
+            gui_no_date(LSD.func_menu[0]);
             goto exit2;
         }
     }
@@ -225,7 +356,7 @@ void func() {
             break;
         case '4':
             sort();
-            gui_no_date("排序成功 ");
+            gui_no_date(LSD.func_menu[1]);
             break;
         case '5':
             array_long();
@@ -282,42 +413,6 @@ void StartAN() {
 }
 
 
-void input()//原始数据录入模块
-{
-    int i = 0;
-    char ch;
-    do {
-        printf("\t\t\t\t1.录入学员信息\n输入第%d个学员的信息\n", i + 1);
-        printf("\n输入学生编号:");
-        scanf("%d", &stu[i].no);
-        fflush(stdin);
-        printf("\n输入学员姓名:");
-        fflush(stdin);
-        gets(stu[i].name);
-        printf("\n输入学员性别:");
-        fflush(stdin);
-        gets(stu[i].sex);
-        printf("\n输入学员成绩:");
-        fflush(stdin);
-        scanf("%f", &stu[i].score1);
-        printf("\n输入学员成绩:");
-        fflush(stdin);
-        scanf("%f", &stu[i].score2);
-        printf("\n输入学员成绩:");
-        fflush(stdin);
-        scanf("%f", &stu[i].score3);
-        printf("\n\n");
-        i++;
-        now_no = i;
-        //printf("%d",now_no);
-        fflush(stdin);
-        printf("是否继续输入?(Y/N)");
-        ch = getchar();
-        system("cls");
-    } while (ch != 'n');
-    system("cls");
-}
-
 void sort()//排序数据函数
 {
     struct student temp;
@@ -340,8 +435,9 @@ void display()//显示数据函数
     char as;
     float ave;
     do {
-        printf("\t\t班级学员信息列表\n");
-        printf("\t编号\t姓名\t性别\t成绩\t成绩\t成绩\t平均值\n");
+        // printf("\t\t班级学员信息列表\n");
+        cout << LSD.display_menu[0] <<endl<< LSD.display_menu[1]<<endl;
+        // printf("\t编号\t姓名\t性别\t语文成绩\t数学成绩\t英语成绩\t平均值\n");
         for (i = 0; i < now_no; i++) {
             stu[i].sum = stu[i].score1 + stu[i].score2 + stu[i].score3;
             stu[i].ave = stu[i].sum / 3;
@@ -349,7 +445,8 @@ void display()//显示数据函数
                    stu[i].score2, stu[i].score3, stu[i].ave);
         }
         fflush(stdin);
-        printf("\t\t按任意键返回主菜单.");
+        // printf("\t\t按任意键返回主菜单.");
+        cout << "\t\t" << LSD.find_data_menu[8];
         as = getchar();
         goto exit;
     } while (as != 'n');
@@ -361,30 +458,47 @@ void insert()//插入数据函数
 {
     char ch;
     do {
-        printf("\n\t\t输入新插入学员队信息\n");
-        printf("\n输入学生编号:");
+        int i = 0;
+        // printf("\n\t\t输入新插入学员队信息\n");
+        cout << "\n\t\t" << LSD.insert_menu[i];
+        i++;
+        // printf("\n输入学生编号:");
+        cout << "\n" << LSD.insert_menu[i];
+        i++;
         scanf("%d", &stu[now_no].no);
         fflush(stdin);
-        printf("\n输入学员姓名:");
+        cout << "\n" << LSD.insert_menu[i];
+        i++;
+        //printf("\n输入学员姓名:");
         fflush(stdin);
         gets(stu[now_no].name);
-        printf("\n输入学员性别:");
+        cout << "\n" << LSD.insert_menu[i];
+        i++;
+        //printf("\n输入学员性别:");
         fflush(stdin);
         gets(stu[now_no].sex);
-        printf("\n输入学员成绩:");
+        cout << "\n" << LSD.insert_menu[i];
+        i++;
+        //printf("\n输入学员语文成绩:");
         fflush(stdin);
         scanf("%f", &stu[now_no].score1);
-        printf("\n输入学员成绩:");
+        cout << "\n" << LSD.insert_menu[i];
+        i++;
+        //printf("\n输入学员数学成绩:");
         fflush(stdin);
         scanf("%f", &stu[now_no].score2);
-        printf("\n输入学员成绩:");
+        cout << "\n" << LSD.insert_menu[i];
+        i++;
+        //printf("\n输入学员英语成绩:");
         fflush(stdin);
         scanf("%f", &stu[now_no].score3);
         printf("\n\n");
         now_no = now_no + 1;
         sort();
         fflush(stdin);
-        printf("是否继续输入?(Y/N)");
+        cout << "\n" << LSD.insert_menu[i];
+        i++;
+        //printf("是否继续输入?(Y/N)");
         ch = getchar();
         system("cls");
     } while (ch != 'n');
@@ -393,7 +507,8 @@ void insert()//插入数据函数
 void del()//删除数据函数
 {
     int inum, i, j;
-    printf("输入要删除学员的编号:");
+    //printf("输入要删除学员的编号:");
+    cout << LSD.del_menu[0];
     fflush(stdin);
     scanf("%d", &inum);
     for (i = 0; i < now_no; i++) {
@@ -412,7 +527,7 @@ void del()//删除数据函数
 void find_data() {
     int no = 0, i = 0;
     bool b = false;
-    cout << "输入编号：";
+    cout << LSD.find_data_menu[0];
     fflush(stdin);
     cin >> no;
     fflush(stdin);
@@ -426,14 +541,14 @@ void find_data() {
         i++;
     }
     if (b) {
-        printf("\t\t班级学员信息列表\n");
-        printf("\t编号\t姓名\t性别\t成绩\t成绩\t成绩\t平均值\n");
+        //printf("\t\t班级学员信息列表\n");
+        cout << LSD.display_menu[0] << endl << LSD.display_menu[1]<<endl;
         printf("\t%d\t%s\t%s\t%.2f\t%.2f\t%.2f\t%.2f\n", stu[i].no, stu[i].name, stu[i].sex, stu[i].score1,
                stu[i].score2, stu[i].score3, stu[i].ave);
-        cout << "任意按键退出";
+        cout << LSD.find_data_menu[8];
         getchar();
     } else {
-        gui_no_date("没有找到 ");
+        gui_no_date(LSD.find_data_menu[9]);
     }
 
 }
@@ -443,7 +558,7 @@ void gui_no_date(string str) {
 
     int i = 0;
     for (i = 3; i > 0; i--) {
-        cout << "\n\n\n\n\t\t\t\t" << str << " " << i << " 秒自动返回";
+        cout << "\n\n\n\n\t\t\t\t" << str << " " << i << LSD.gui_no_date_menu[0];
         Sleep(1000);
         gui_cls();
     }
@@ -451,16 +566,13 @@ void gui_no_date(string str) {
 }
 
 int arr_l() {
-    int i = 0;
-    while (stu[i].no != 0) {
-        i++;
-    }
-    return i;
+    return now_no;
 }
 
 void array_long() {
     cout << "已经录入 " << arr_l() << " 位学生" << endl;
     fflush(stdin);
-    printf("\t\t按任意键返回主菜单.");
+    //printf("\t\t按任意键返回主菜单.");
+    cout << LSD.find_data_menu[8];
     getchar();
 }
